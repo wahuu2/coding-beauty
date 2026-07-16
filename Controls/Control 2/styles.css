@@ -1,3 +1,9 @@
+:root {
+  --color-bg: #212129;
+  --color-text: #f9f9f9;
+  --color-muted: #5a5a63;
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -5,7 +11,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: #1c1c1c;
+  background: var(--color-bg);
+  color: var(--color-text);
   overflow: hidden;
   font-family: "Euclid Circular A", "Poppins";
 }
@@ -14,109 +21,122 @@ body {
   box-sizing: border-box;
 }
 
-.textbox {
+.dropdown {
+  translate: 0 -60px;
   position: relative;
   margin-bottom: 16px;
 }
 
-.textbox :is(label, span) {
+.textbox label {
   position: absolute;
   top: 50%;
   translate: 0 -50%;
   pointer-events: none;
-  color: #888888;
+  color: var(--color-muted);
   transition: 0.3s;
 }
 
 .textbox > label {
   left: 44px;
   translate: 0 -50%;
-  padding: 4px 8px;
+  padding: 4px 4px;
+  color: var(--color-text);
 }
 
-.textbox > .icon {
+.textbox > .search-icon {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
   z-index: 2;
   left: 16px;
   font-size: 26px;
+  color: var(--color-muted);
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
+  transition: 0.3s;
 }
 
 .textbox > input {
   height: 56px;
   width: 240px;
   padding-left: 48px;
-  border: 2px solid #292929;
+  border: 2px solid var(--color-muted);
   border-radius: 8px;
   outline: none;
   background: transparent;
   color: #f9f9f9;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 18px;
   transition: 0.3s;
+}
+
+.textbox > input:hover {
+  border-color: rgb(255 255 255 / 40%);
 }
 
 .textbox > input.valid.has-value {
   border-color: #14ca99;
+  background: #2b2b37;
 }
 
 .textbox > :is(input:focus, .has-value) {
   border-color: #d3d3d3;
 }
 
-.textbox > input.has-value {
-  border-color: #ff5360;
-}
-
 .textbox > :is(input:focus, .has-value) ~ span {
-  color: #f9f9f9;
+  color: var(--color-text);
 }
 
 .textbox > :is(input:focus, .has-value) ~ label {
-  background: #1c1c1c;
-  color: rgba(255, 255, 255, 0.75);
+  background: var(--color-bg);
+  color: var(--color-text);
   translate: -42px -42px;
   scale: 0.8;
 }
 
-@keyframes spin {
-  100% {
-    rotate: 1turn;
-  }
-}
-
-.spinner {
+.menu {
+  overflow: auto;
   position: absolute;
-  top: 50%;
-  right: 16px;
-  translate: 0 -50%;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 3px solid rgb(255 255 255 / 14%);
-  border-top-color: #f7f7f7;
+  top: 64px;
+  left: 0;
+  display: grid;
+  width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  background: #2b2b37;
   opacity: 0;
-  animation: spin 1s infinite linear;
-}
-
-.spinner.visible {
-  opacity: 1;
-}
-
-button {
-  width: 240px;
-  height: 56px;
-  border-radius: 6px;
-  border: 0;
-  font-family: inherit;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  padding: 0 18px;
-  justify-content: space-between;
-  background: #2e3231;
-  color: #f7f7f7;
+  visibility: hidden;
   transition: 0.3s;
 }
 
-button:disabled {
-  opacity: 0.33;
+.dropdown.open .menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu button {
+  background: transparent;
+  font-family: inherit;
+  border: 0;
+  color: #f9f9f9;
+  text-align: left;
+  height: 36px;
+  font-size: 16px;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.menu button.focused,
+.menu button:hover {
+  background: rgb(255 255 255 / 4%);
+}
+
+.menu p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 16px;
+  height: 36px;
 }

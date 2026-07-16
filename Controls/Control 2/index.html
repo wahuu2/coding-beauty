@@ -18,22 +18,14 @@
     />
   </head>
   <body>
-    <div class="textbox">
-      <input
-        oninput="handleChange(event)"
-        onkeydown="handleStartTyping()"
-        autocomplete="off"
-        id="input"
-        type="text"
-      />
-      <span class="icon visible material-symbols-outlined">account_circle</span>
-      <label htmlFor="input">Username</label>
-      <span class="spinner"></span>
+    <div class="dropdown" id="dropdown">
+      <div class="textbox">
+        <input autocomplete="off" spellcheck="false" id="input" type="text" />
+        <span class="search-icon material-symbols-outlined">search</span>
+        <label for="input">Find your character</label>
+      </div>
+      <div class="menu" id="menu"></div>
     </div>
-    <button disabled>
-      <p>Sign up</p>
-      <span class="material-symbols-outlined"> arrow_right_alt </span>
-    </button>
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
