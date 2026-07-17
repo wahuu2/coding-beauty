@@ -1,8 +1,8 @@
 :root {
-  --color-bg: #f4f6fa;
-  --color-primary: #121926;
+  --color-bg: #1d1f20;
+  --color-primary: #6962f7;
   --color-muted: #9fa4af;
-  --color-hover: #e8ecf4;
+  --color-hover: #2c2e2f;
 }
 
 * {
@@ -11,8 +11,8 @@
 
 body {
   margin: 0;
-  background: #dadee5;
-  color: #5d6674;
+  background: #3e4144;
+  color: #adb0bc;
   height: 100vh;
   font-family: "Euclid Circular A";
 }
@@ -20,6 +20,7 @@ body {
 h2,
 h3 {
   margin: 0;
+  font-weight: 400;
 }
 
 .sidebar {
@@ -34,7 +35,7 @@ h3 {
   width: 80px;
   border-radius: 18px;
   transition: 0.4s;
-  background: #ffffff;
+  background: #151617;
 }
 
 .sidebar button {
@@ -63,7 +64,7 @@ h3 {
   z-index: 1;
   left: 0;
   width: 80px;
-  background: #ffffff;
+  background: #151617;
 }
 
 .left img {
@@ -72,15 +73,37 @@ h3 {
 }
 
 .left button {
+  position: relative;
   width: 44px;
   height: 44px;
   display: grid;
   place-items: center;
 }
 
-.left button:hover {
+.left button::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 3px solid #151617;
+  opacity: 0;
+}
+
+.left button.has-badge::after {
+  opacity: 1;
+}
+
+.sidebar button:hover {
   background: var(--color-bg);
-  color: #384251;
+  color: #f9f9f9;
+}
+
+.sidebar button:hover.has-badge::after {
+  border-color: var(--color-bg);
 }
 
 .left div:last-of-type {
@@ -111,12 +134,11 @@ h3 {
 
 .right h2 {
   font-size: 16px;
-  font-weight: 600;
+  color: #f9f9f9;
 }
 
 .right h3 {
   font-size: 12px;
-  font-weight: 500;
   color: var(--color-muted);
 }
 
@@ -144,7 +166,7 @@ h3 {
 
 .right button:hover {
   background: var(--color-hover);
-  color: #384251;
+  color: #f9f9f9;
 }
 
 .right button:hover i:last-child {
@@ -197,7 +219,7 @@ h3 {
 
 .submenu li:hover {
   background: var(--color-hover);
-  color: #384251;
+  color: #f9f9f9;
   cursor: pointer;
 }
 
