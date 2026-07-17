@@ -1,44 +1,14 @@
 body {
-  background: url("bg.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #f9f9f9;
-  overflow: hidden;
-  font-family: "Euclid Circular B", "Poppins";
+  font-family: "Poppins";
+  font-size: 18px;
+  margin: 0;
   height: 100vh;
+  background: #161617;
+  color: #fff;
 }
 
-nav {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  left: 16px;
-  display: flex;
-  align-items: center;
-  padding: 0 32px;
-  height: 72px;
-  border-radius: 36px;
-  background: rgb(255 255 255 / 6%);
-  background: color-mix(in oklch, rgb(255 255 255 / 8%) 72%, transparent);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
-  box-shadow:
-    inset 0 1px 0 color-mix(in oklch, rgb(255 255 255 / 12%) 65%, transparent),
-    inset 0 0 0 0.06rem
-      color-mix(in oklch, rgb(255 255 255 / 6%) 55%, transparent);
-}
-
-nav > span {
-  margin-left: auto;
-}
-
-.logo {
-  height: 28px;
-  margin-right: 28px;
-}
-
-.end:last-child {
-  justify-content: flex-end;
+:root {
+  --color-primary: #4b6aff;
 }
 
 ul {
@@ -47,64 +17,114 @@ ul {
   list-style: none;
 }
 
-.menu {
-  padding-left: 24px;
-  border-left: 1px solid
-    color-mix(in oklch, rgb(255 255 255 / 40%) 65%, transparent);
-  display: flex;
-  justify-content: flex-start;
-  margin-right: 24px;
-}
-
-.menu > ul {
+nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: space-between;
+  padding: 10px 30px 0;
 }
 
-ul > li {
+nav > :is(h1, span.material-symbols-outlined) {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+}
+
+nav h1 {
+  background: #343950;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+nav span {
+  color: #fff;
+  font-size: 20px;
+}
+
+a {
   cursor: pointer;
-  opacity: 0.6;
-  transition: 0.3s;
 }
 
-ul > li:hover {
-  opacity: 1;
+.menu {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 70px;
 }
 
-.submenu.open {
-  opacity: 1;
+.menu li {
+  display: inline-block;
+  width: 80px;
+  color: #999;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu li:hover .submenu {
+  height: 85px;
+}
+
+.menu > li:hover > a {
+  color: #fff;
+}
+
+.menu > li:hover > a::before {
   visibility: visible;
+  scale: 1 1;
 }
 
 .submenu {
-  position: fixed;
-  top: 98px;
+  overflow: hidden;
+  position: absolute;
   left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  background-color: var(--color-primary);
+  height: 0;
+  line-height: 40px;
+  box-sizing: border-box;
+  transition: height 0.3s ease-in-out;
+}
+.menu li .submenu a {
+  color: #fff;
   opacity: 0;
-  visibility: hidden;
-  padding: 24px;
-  border-radius: 36px;
-  background: rgb(255 255 255 / 6%);
-  background: color-mix(in oklch, rgb(255 255 255 / 12%) 72%, transparent);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
-  box-shadow:
-    inset 0 1px 0 color-mix(in oklch, rgb(255 255 255 / 15%) 65%, transparent),
-    inset 0 0 0 0.06rem
-      color-mix(in oklch, rgb(255 255 255 / 6%) 55%, transparent);
+  font-size: 16px;
+  transition: opacity 0.25s;
+}
+
+.menu > li:hover .submenu a {
+  opacity: 1;
+}
+
+.menu > li .submenu a:hover {
+  background: rgb(0 0 0 / 20%);
+}
+
+.menu > li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+  font-size: 16px;
+  text-decoration: none;
+  position: relative;
+  height: 100%;
   transition: 0.3s;
 }
 
-.submenu > div {
-  display: none;
-}
-
-.submenu ul {
-  display: grid;
-  gap: 20px;
-}
-
-.submenu > div.visible {
-  display: grid;
+.menu > li > a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 3px;
+  left: 0px;
+  background-color: var(--color-primary);
+  transition: all 0.2s ease-in-out;
+  scale: 0 0;
+  visibility: hidden;
 }
