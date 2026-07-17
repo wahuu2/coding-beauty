@@ -17,34 +17,66 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <nav>
-      <img src="./logo.svg" />
-      <h1>Pexels</h1>
-      <ul class="links">
-        <li>
-          <a>Upload</a>
-        </li>
-        <li>
-          <a>Licence</a>
-        </li>
-        <li>
-          <div class="dropdown">
-            <a>
-              <p>Explore</p>
-              <span class="material-symbols-outlined"> expand_more </span></a
-            >
-            <div class="menu">
-              <a>Discover Photos</a>
-              <a>Popular Searches</a>
-              <a>Leaderboard</a>
-              <a>Challenges</a>
-              <a>Free Videos</a>
-              <a>Pexels Blog</a>
-            </div>
+    <div class="dropdown">
+      <button>
+        <span class="material-symbols-outlined"> account_circle </span>
+        Kim Wilson
+        <span class="material-symbols-outlined chevron"> expand_more </span>
+      </button>
+      <input type="checkbox" id="create" />
+      <input type="checkbox" id="settings" />
+      <div class="menu">
+        <div class="menu-inner">
+          <div class="main-menu">
+            <label for="create">
+              <span class="material-symbols-outlined"> add_box </span>
+              <p>Create</p>
+              <span class="material-symbols-outlined"> chevron_right </span>
+            </label>
+            <label for="settings">
+              <span class="material-symbols-outlined"> settings </span>
+              <p>Settings</p>
+              <span class="material-symbols-outlined"> chevron_right </span>
+            </label>
           </div>
-        </li>
-      </ul>
-      <button type="button">Join</button>
-    </nav>
+          <div class="sub-menu create">
+            <label for="create">
+              <span class="material-symbols-outlined"> arrow_back </span>
+              <p>Create</p>
+            </label>
+            <button>
+              <span class="material-symbols-outlined"> folder </span>
+              <p>Document</p>
+            </button>
+            <button>
+              <span class="material-symbols-outlined"> article </span>
+              <p>Article</p>
+            </button>
+          </div>
+          <div class="sub-menu settings">
+            <label for="settings">
+              <span class="material-symbols-outlined"> arrow_back </span>
+              <p>Settings</p>
+            </label>
+            <button>
+              <span class="material-symbols-outlined"> storage </span>
+              <p>Storage</p>
+            </button>
+            <button>
+              <span class="material-symbols-outlined"> mouse </span>
+              <p>Accessory</p>
+            </button>
+            <button>
+              <span class="material-symbols-outlined"> headphones </span>
+              <p>Audio</p>
+            </button>
+          </div>
+        </div>
+        <!-- 
+        const items = [ { name: "create", subItems: ["description", "folder",
+        "article"], }, { name: "devices", subItems: ["storage", "mouse",
+        "keyboard", "headphones"], }, { name: "logout", }, ]; -->
+      </div>
+    </div>
   </body>
 </html>
